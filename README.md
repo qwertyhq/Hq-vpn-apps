@@ -45,7 +45,7 @@
 | **macOS** | [`HQConnect-1.0-mac.dmg`](https://github.com/qwertyhq/Hq-vpn-apps/releases/download/macos-20261110184052.0/HQConnect-1.0-mac.dmg) | Apple Silicon, macOS 14 и новее |
 | **Android** | [`HQConnect-1.0-android.apk`](https://github.com/qwertyhq/Hq-vpn-apps/releases/download/macos-20261110184052.0/HQConnect-1.0-android.apk) | Android 7.0 и новее, arm64 |
 | **Windows** · ранний доступ | [`HQConnect-1.0-windows-x64.zip`](https://github.com/qwertyhq/Hq-vpn-apps/releases/download/macos-20261110184052.0/HQConnect-1.0-windows-x64.zip) | Windows 10/11, x64, права администратора |
-| **Linux** · ранний доступ | скоро | x86_64, systemd |
+| **Linux** · ранний доступ | [`HQConnect-1.0-linux-x64.tar.gz`](https://github.com/qwertyhq/Hq-vpn-apps/releases/download/macos-20261110184052.0/HQConnect-1.0-linux-x64.tar.gz) | x86_64, systemd |
 
 Все файлы — в [релизе 1.0](https://github.com/qwertyhq/Hq-vpn-apps/releases/tag/macos-20261110184052.0). Контрольные суммы — в `SHA256SUMS.txt` там же.
 
@@ -78,6 +78,18 @@
 3. Запустите HQ Connect из меню «Пуск», добавьте подписку и подключитесь.
 
 Обновление — запустить `install.ps1` новой версии, удаление — `uninstall.ps1`. Сборка не подписана сертификатом Microsoft, поэтому Windows может предупредить при запуске.
+
+### Linux (ранний доступ)
+
+1. Распакуйте архив: `tar -xzf HQConnect-1.0-linux-x64.tar.gz && cd HQConnect-1.0-linux-x64`
+2. Установите от своей учётной записи:
+   ```sh
+   sudo ./install.sh
+   ```
+   Нужны systemd с systemd-resolved, iproute2, python3 и `/dev/net/tun` — есть в обычных Ubuntu, Debian и Fedora. Приложение ставится в `/opt/hqconnect`, служба `hqconnect-runtime` пускает к себе только его и только вашу учётную запись.
+3. Запустите HQ Connect из меню приложений, добавьте подписку и подключитесь.
+
+Обновление — снова `sudo ./install.sh` из новой версии, удаление — `sudo ./uninstall.sh`.
 
 ## Вопросы
 
