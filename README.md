@@ -44,7 +44,7 @@
 |---|---|---|
 | **macOS** | [`HQConnect-1.0-mac.dmg`](https://github.com/qwertyhq/Hq-vpn-apps/releases/download/macos-20261110184052.0/HQConnect-1.0-mac.dmg) | Apple Silicon, macOS 14 и новее |
 | **Android** | [`HQConnect-1.0-android.apk`](https://github.com/qwertyhq/Hq-vpn-apps/releases/download/macos-20261110184052.0/HQConnect-1.0-android.apk) | Android 7.0 и новее, arm64 |
-| **Windows** · ранний доступ | [`HQConnect-1.0-windows-x64.zip`](https://github.com/qwertyhq/Hq-vpn-apps/releases/download/macos-20261110184052.0/HQConnect-1.0-windows-x64.zip) | Windows 10/11, x64, права администратора |
+| **Windows** · ранний доступ | [`HQConnect-1.0-windows-setup.exe`](https://github.com/qwertyhq/Hq-vpn-apps/releases/download/macos-20261110184052.0/HQConnect-1.0-windows-setup.exe) | Windows 10/11, x64, права администратора |
 | **Linux** · ранний доступ | [`HQConnect-1.0-linux-x64.tar.gz`](https://github.com/qwertyhq/Hq-vpn-apps/releases/download/macos-20261110184052.0/HQConnect-1.0-linux-x64.tar.gz) | x86_64, systemd |
 
 Все файлы — в [релизе 1.0](https://github.com/qwertyhq/Hq-vpn-apps/releases/tag/macos-20261110184052.0). Контрольные суммы — в `SHA256SUMS.txt` там же.
@@ -69,15 +69,12 @@
 
 ### Windows (ранний доступ)
 
-1. Распакуйте `HQConnect-1.0-windows-x64.zip` целиком.
-2. Откройте PowerShell от имени администратора, перейдите в распакованную папку и запустите:
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File .\install.ps1
-   ```
-   Установщик кладёт приложение в `C:\Program Files\HQ Connect` и регистрирует службу, которая включает VPN. Служба пускает к себе только это приложение и только пользователя, который вошёл в Windows.
-3. Запустите HQ Connect из меню «Пуск», добавьте подписку и подключитесь.
+1. Скачайте и запустите `HQConnect-1.0-windows-setup.exe`.
+2. Сборка не подписана сертификатом Microsoft, поэтому Windows покажет предупреждение: «Подробнее» → «Выполнить в любом случае». Затем разрешите установку от имени администратора.
+3. Установщик положит HQ Connect в `C:\Program Files\HQ Connect` и включит службу VPN. Служба пускает к себе только это приложение и только пользователя, который вошёл в Windows.
+4. Запустите HQ Connect из меню «Пуск», добавьте подписку и подключитесь.
 
-Обновление — запустить `install.ps1` новой версии, удаление — `uninstall.ps1`. Сборка не подписана сертификатом Microsoft, поэтому Windows может предупредить при запуске.
+Обновление — запустить установщик новой версии, он обновит приложение поверх. Удаление — «Параметры» → «Приложения» → HQ Connect. На Windows 11 с включённым Smart App Control неподписанное приложение может не запуститься.
 
 ### Linux (ранний доступ)
 
